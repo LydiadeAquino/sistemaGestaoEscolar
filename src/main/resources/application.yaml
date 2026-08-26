@@ -1,3 +1,17 @@
+server:
+  port: 8080 # define a porta HTTP a aplicação vai rodar - padrao costuma ser 8080
+
 spring:
   application:
     name: gestaoEscolar
+
+  datasource: # configurações sobre conexão com MySQL
+    url: jdbc:mysql://localhost:3306/gestao_escolar_db?createDatabaseIfNotExist=true&serverTimezone=UTC
+    username: root # nome do usuario
+    password: 0709
+    driver-class-name: com.mysql.cj.jdbc.Driver # O driver é o que faz a comunicação Java-MySQL
+
+  jpa: # traduz o Java para o SQL
+    show-sql: true # mostra as consultas SQL no terminal
+    hibernate:
+      ddl-auto: update # cria e atualiza as tabelas no MySQL automaticamente
