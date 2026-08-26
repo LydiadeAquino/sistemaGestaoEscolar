@@ -1,4 +1,10 @@
 package kl.gestaoEscolar.entities;
+import jakarta.persistence.*;
 
-public class Secretaria {
+
+@Entity
+public class Secretaria extends Usuario {
+
+
+
 }
