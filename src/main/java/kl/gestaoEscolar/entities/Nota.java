@@ -2,6 +2,7 @@ package kl.gestaoEscolar.entities;
 
 
 import jakarta.persistence.*;
+import kl.gestaoEscolar.enums.Situacao;
 
 @Entity
 public class Nota {
@@ -37,6 +38,27 @@ public class Nota {
         this.aluno = aluno;
         this.disciplina = disciplina;
         this.situacao = situacao;
+    }
+
+    public void CalcularMediaESituacao(){
+        if(this.nota1 != null && this.nota2 != null) {
+            this.media = (this.nota1 + this.nota2) / 2.0;
+
+
+            if (this.media >= 7.0) {
+                this.situacao = Situacao.APROVADO;
+            } else if (this.media >= 5.0) {
+                this.situacao = Situacao.RECUPERACAO;
+            } else {
+                this.situacao = Situacao.REPROVADO;
+            }
+        }
+
+        else{
+            this.media = null;
+            this.situacao = Situacao.EM_ANDAMENTO;
+        }
+
     }
 
     public Long getId(){
