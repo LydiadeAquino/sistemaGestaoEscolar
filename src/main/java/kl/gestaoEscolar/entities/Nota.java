@@ -40,7 +40,9 @@ public class Nota {
         this.situacao = situacao;
     }
 
-    public void CalcularMediaESituacao(){
+    @PrePersist
+    @PreUpdate
+    public void calcularMediaESituacao(){
         if(this.nota1 != null && this.nota2 != null) {
             this.media = (this.nota1 + this.nota2) / 2.0;
 

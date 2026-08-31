@@ -25,7 +25,7 @@ public class Disciplina {
 
         }
 
-        public Disciplina(Long id, String meteria, Professor professor, List<Nota> notas){
+        public Disciplina(Long id, String materia, Professor professor, List<Nota> notas){
                 this.id=id;
                 this.materia=materia;
                 this.professor=professor;
