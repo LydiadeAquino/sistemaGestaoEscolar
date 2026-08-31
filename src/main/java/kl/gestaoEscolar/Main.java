@@ -74,7 +74,13 @@ public class Main {
     System.out.println(secretaria.getSenha());
     System.out.println(secretaria.getPerfil());
 
+    System.out.println("---Relatório de teste de DISCIPLINA---");
 
+    Disciplina disciplin = new Disciplina(1L, "Português", professor, null);
+
+    System.out.println(disciplin.getId());
+    System.out.println(disciplin.getMateria());
+    System.out.println(disciplin.getNota());
 
     }
 
