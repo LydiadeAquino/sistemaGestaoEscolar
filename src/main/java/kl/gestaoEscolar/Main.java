@@ -1,6 +1,5 @@
 package kl.gestaoEscolar;
 
-import kl.gestaoEscolar.entities.Secretaria;
 import kl.gestaoEscolar.entities.Aluno;
 import kl.gestaoEscolar.entities.Disciplina;
 import kl.gestaoEscolar.entities.Nota;
@@ -65,23 +64,8 @@ public class Main {
     System.out.println("Media: " + nota4.getMedia());
     System.out.println("Situação: " + nota4.getSituacao());
 
-    System.out.println("---Relatório de teste de SECRETARIA---");
 
-    Secretaria secretaria = new Secretaria(1L, "Lydia Aquino", "lydiaaquino78@email.com", "123456", Perfil.SECRETARIA);
 
-    System.out.println(secretaria.getId());
-    System.out.println(secretaria.getNome());
-    System.out.println(secretaria.getEmail());
-    System.out.println(secretaria.getSenha());
-    System.out.println(secretaria.getPerfil());
-
-    System.out.println("---Relatório de teste de DISCIPLINA---");
-
-    Disciplina disciplin = new Disciplina(1L, "Português", professor, null);
-
-    System.out.println(disciplin.getId());
-    System.out.println(disciplin.getMateria());
-    System.out.println(disciplin.getNota());
 
     }
 
