@@ -1,5 +1,6 @@
 package kl.gestaoEscolar;
 
+import kl.gestaoEscolar.entities.Secretaria;
 import kl.gestaoEscolar.entities.Aluno;
 import kl.gestaoEscolar.entities.Disciplina;
 import kl.gestaoEscolar.entities.Nota;
@@ -14,16 +15,25 @@ public class Main {
     System.out.println("---Relatório de teste de PROFESSOR---");
 
     Professor professor = new Professor( 1L, "Camila", "Camila@email.com", "123@123", Perfil.PROFESSOR );
-    System.out.println("ID: " + professor.getId() + "\nNOME: " + professor.getNome()+ "\nEMAIL: "+ professor.getEmail()+ "\nPerfil: " +professor.getPerfil());
 
-    System.out.println("---Relatório de teste de Aluno---");
-    Aluno aluno = new Aluno(1l, "Carla", "Carla@email.com", "123@123", Perfil.ALUNO);
-    System.out.println("ID: " + aluno.getId() + "\nNOME: " + aluno.getNome()+ "\nEMAIL: "+ aluno.getEmail()+ "\nPerfil: " +aluno.getPerfil());
+    System.out.println("ID: " + professor.getId() + "\nNOME: " + professor.getNome() + "\nEMAIL: " +
+            professor.getEmail() + "\nSENHA: " + professor.getSenha() + "\nPERFIL: " + professor.getPerfil());
 
 
-    System.out.println("---Relatório de teste de NOTA---");
+    System.out.println("\n---Relatório de teste de ALUNO---");
 
-    System.out.println("---Situação APROVADO---");
+    Aluno alun = new Aluno(1L, "Carla Souza", "carla@email.com", "123@123", Perfil.ALUNO);
+     System.out.println("ID: " + alun.getId() + "\nNOME: " + alun.getNome() + "\nEMAIL: " +
+             alun.getEmail() + "\nSENHA: " + alun.getSenha() + "\nPERFIL: " + alun.getPerfil());
+
+
+    System.out.println("\n---Relatório de teste de NOTA---");
+
+   Aluno aluno = new Aluno();
+   Disciplina disciplina = new Disciplina();
+
+    System.out.println("\n---Situação APROVADO---");
+
     Nota nota1 = new Nota(1L, 5.9, 8.4, null, aluno, disciplina, null);
     nota1.calcularMediaESituacao();
 
@@ -33,7 +43,7 @@ public class Main {
     System.out.println("Media: " + nota1.getMedia());
     System.out.println("Situação: " + nota1.getSituacao());
 
-    System.out.println("---Situação EM_ANDAMENTO---");
+    System.out.println("\n---Situação EM_ANDAMENTO---");
     Nota nota2 = new Nota(2L, 9.0, null, null, aluno, disciplina, null);
     nota2.calcularMediaESituacao();
 
@@ -43,7 +53,7 @@ public class Main {
     System.out.println("Media: " + nota2.getMedia());
     System.out.println("Situação: " + nota2.getSituacao());
 
-    System.out.println("---Situação REPROVADO---");
+    System.out.println("\n---Situação REPROVADO---");
     Nota nota3 = new Nota(3L, 3.7, 5.2, null, aluno, disciplina, null);
     nota3.calcularMediaESituacao();
 
@@ -54,7 +64,7 @@ public class Main {
     System.out.println("Situação: " + nota3.getSituacao());
 
 
-    System.out.println("---Situação RECUPERAÇÃO---");
+    System.out.println("\n---Situação RECUPERAÇÃO---");
     Nota nota4 = new Nota(4L, 5.0, 5.0, null, aluno, disciplina, null);
     nota4.calcularMediaESituacao();
 
@@ -65,7 +75,22 @@ public class Main {
     System.out.println("Situação: " + nota4.getSituacao());
 
 
+    System.out.println("\n---Relatório de teste de SECRETARIA---");
 
+    Secretaria secretaria = new Secretaria(1L, "Josefina Borges", "josfina99@email.com", "josi123", Perfil.SECRETARIA);
+    System.out.println(secretaria.getId());
+    System.out.println(secretaria.getNome());
+    System.out.println(secretaria.getEmail());
+    System.out.println(secretaria.getSenha());
+    System.out.println(secretaria.getPerfil());
+
+    System.out.println("\n---Relatório de teste de DISCIPLINA---");
+
+     Disciplina disciplin = new Disciplina(1L, "Português", professor, null);
+
+    System.out.println(disciplin.getId());
+    System.out.println(disciplin.getMateria());
+    System.out.println(disciplin.getNota());
 
     }
 
