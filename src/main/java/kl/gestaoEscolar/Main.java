@@ -14,13 +14,14 @@ public class Main {
     System.out.println("---Relatório de teste de PROFESSOR---");
 
     Professor professor = new Professor( 1L, "Camila", "Camila@email.com", "123@123", Perfil.PROFESSOR );
+    System.out.println("ID: " + professor.getId() + "\nNOME: " + professor.getNome()+ "\nEMAIL: "+ professor.getEmail()+ "\nPerfil: " +professor.getPerfil());
 
-    System.out.println(professor.getNome());
+    System.out.println("---Relatório de teste de Aluno---");
+    Aluno aluno = new Aluno(1l, "Carla", "Carla@email.com", "123@123", Perfil.ALUNO);
+    System.out.println("ID: " + aluno.getId() + "\nNOME: " + aluno.getNome()+ "\nEMAIL: "+ aluno.getEmail()+ "\nPerfil: " +aluno.getPerfil());
+
 
     System.out.println("---Relatório de teste de NOTA---");
-
-   Aluno aluno = new Aluno();
-   Disciplina disciplina = new Disciplina();
 
     System.out.println("---Situação APROVADO---");
     Nota nota1 = new Nota(1L, 5.9, 8.4, null, aluno, disciplina, null);
