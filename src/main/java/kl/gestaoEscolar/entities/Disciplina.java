@@ -2,6 +2,7 @@ package kl.gestaoEscolar.entities;
 import jakarta.persistence.*;
 import java.util.List;
 
+@Table(name = "tb_disciplina")
 @Entity
 public class Disciplina {
 

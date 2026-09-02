@@ -8,7 +8,7 @@ spring:
   datasource: # configurações sobre conexão com MySQL
     url: jdbc:mysql://localhost:3306/gestao_escolar_db?createDatabaseIfNotExist=true&serverTimezone=UTC
     username: root # nome do usuario
-    password: 0709
+    password: 25@12@16@Jl.
     driver-class-name: com.mysql.cj.jdbc.Driver # O driver é o que faz a comunicação Java-MySQL
 
   jpa: # traduz o Java para o SQL

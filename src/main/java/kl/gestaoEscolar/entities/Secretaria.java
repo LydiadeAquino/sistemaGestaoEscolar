@@ -2,7 +2,7 @@ package kl.gestaoEscolar.entities;
 import jakarta.persistence.*;
 import kl.gestaoEscolar.enums.Perfil;
 
-
+@Table(name = "tb_secretaria")
 @Entity
 public class Secretaria extends Usuario {
 

@@ -1,8 +1,10 @@
 package kl.gestaoEscolar.entities;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
 import kl.gestaoEscolar.enums.Perfil;
 
+@Table(name = "tb_aluno")
 @Entity
 public class Aluno extends Usuario {
 

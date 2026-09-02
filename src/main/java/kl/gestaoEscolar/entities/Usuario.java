@@ -3,9 +3,9 @@ package kl.gestaoEscolar.entities;
 import jakarta.persistence.*;
 import kl.gestaoEscolar.enums.Perfil;
 
-    @Entity
-    @Inheritance(strategy = InheritanceType.JOINED) //Define a estratégia de tabelas vinculadas por ID
-
+@Table(name = "tb_usuario")
+@Entity
+@Inheritance(strategy = InheritanceType.JOINED) //Define a estratégia de tabelas vinculadas por ID
 public abstract class Usuario {
 
     @Id

@@ -4,6 +4,7 @@ package kl.gestaoEscolar.entities;
 import jakarta.persistence.*;
 import kl.gestaoEscolar.enums.Situacao;
 
+@Table(name = "tb_nota")
 @Entity
 public class Nota {
 
