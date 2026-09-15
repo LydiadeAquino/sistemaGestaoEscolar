@@ -1,4 +1,10 @@
 package kl.gestaoEscolar.dtos;
 
-public class AlunoResponseDto {
-}
+import kl.gestaoEscolar.enums.Perfil;
+
+public record AlunoResponseDto(
+        Long id,
+        String nome,
+        String email,
+        Perfil perfil
+) { }
