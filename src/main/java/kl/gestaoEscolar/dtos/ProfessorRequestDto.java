@@ -1,22 +1,14 @@
 package kl.gestaoEscolar.dtos;
 
-public class ProfessorRequestDto {
+public record ProfessorRequestDto (
     //não é necessário ter um atributo de id, porque nãao há registro do usúario no sistema ainda, o registro
     //é feito quando os dados é salvo no banco de dados.
-    private String nome;
-    private String email;
-    private String senha;
+    //record já gera automaticamente privates,getters e setters e toString
+    String nome,
+    String email,
+    String senha
+){ }
 
-    public String getNome(){
-        return nome;
-    }
 
-    public String getEmail(){
-        return email;
-    }
 
-    public String getSenha(){
-        return senha;
-    }
 
-}

@@ -2,7 +2,6 @@ package kl.gestaoEscolar.controllers;
 
 import kl.gestaoEscolar.dtos.AlunoRequestDto;
 import kl.gestaoEscolar.dtos.AlunoResponseDto;
-import kl.gestaoEscolar.entities.Aluno;
 import kl.gestaoEscolar.services.AlunoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

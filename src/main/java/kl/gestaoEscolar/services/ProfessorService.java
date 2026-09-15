@@ -4,7 +4,6 @@ package kl.gestaoEscolar.services;
 import kl.gestaoEscolar.dtos.ProfessorRequestDto;
 import kl.gestaoEscolar.dtos.ProfessorResponseDto;
 import kl.gestaoEscolar.entities.Professor;
-import kl.gestaoEscolar.enums.Perfil;
 import kl.gestaoEscolar.repositories.ProfessorRepository;
 import org.springframework.stereotype.Service;
 
@@ -21,28 +20,49 @@ public class ProfessorService {
         this.professorRepository = professorRepository;
     }
 
-    public List<ProfessorResponseDto> listarTodos(){
+
+    //metodo que converte um RequestDto em uma Entidade Professor
+    public Professor converterParaEntidade(ProfessorRequestDto professorRequest){
+        Professor professor = new Professor();
+        professor.setNome(professorRequest.nome());
+        professor.setEmail(professorRequest.email());
+        professor.setSenha(professorRequest.senha());
+        return professor;
+
+
+    }
+
+
+    //é um metodo que "JOGA" os dados da entidade para o construtor que tem em DTO de resposta.
+    public ProfessorResponseDto converterParaDto(Professor professor){
+        return new ProfessorResponseDto(
+                professor.getId(),
+                professor.getNome(),
+                professor.getEmail(),
+                professor.getPerfil()
+        );
+
+    }
+
+
+   public List<ProfessorResponseDto> listarTodos(){
         return professorRepository.findAll()
                 .stream()
-                .map(ProfessorResponseDto::new)
+                .map(this::converterParaDto)
                 .collect(Collectors.toList());
-    }
 
-    public ProfessorResponseDto salvarProfessor(ProfessorRequestDto professorRequest){
-        if(professorRepository.findByEmail(professorRequest.getEmail()).isPresent()){
-            throw new RuntimeException("Email já cadastrado");
-        }
+   }
 
-        //da RequestDto para Entity
-        Professor professor = new Professor();
-        professor.setNome(professorRequest.getNome());
-        professor.setEmail(professorRequest.getEmail());
-        professor.setSenha(professorRequest.getSenha());
-        professor.setPerfil(Perfil.PROFESSOR);
+   public ProfessorResponseDto salvarProfessor(ProfessorRequestDto professorRequest){
+        Professor professor = converterParaEntidade(professorRequest);
         Professor professorSalvo = professorRepository.save(professor);
-        return new ProfessorResponseDto(professorSalvo);
+        return converterParaDto(professorSalvo);
 
-    }
+   }
+
+
+
+
 
 
 }
