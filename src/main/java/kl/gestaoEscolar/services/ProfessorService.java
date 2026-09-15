@@ -33,7 +33,7 @@ public class ProfessorService {
             throw new RuntimeException("Email já cadastrado");
         }
 
-        //da DTO para Entity
+        //da RequestDto para Entity
         Professor professor = new Professor();
         professor.setNome(professorRequest.getNome());
         professor.setEmail(professorRequest.getEmail());
