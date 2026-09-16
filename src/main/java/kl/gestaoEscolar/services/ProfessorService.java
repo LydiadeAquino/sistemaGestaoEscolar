@@ -53,10 +53,37 @@ public class ProfessorService {
 
    }
 
+   public ProfessorResponseDto buscarPorId(Long id){
+        Professor professor = professorRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Professor não encontrado com o ID: " + id));
+        return converterParaDto(professor);
+
+   }
+
    public ProfessorResponseDto salvarProfessor(ProfessorRequestDto professorRequest){
         Professor professor = converterParaEntidade(professorRequest);
         Professor professorSalvo = professorRepository.save(professor);
         return converterParaDto(professorSalvo);
+
+   }
+
+   public ProfessorResponseDto atualizarProfessor(Long id, ProfessorRequestDto professorRequest){
+        Professor professorExistente = professorRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Professor não encontrado com o ID: " + id));
+
+        professorExistente.setNome(professorRequest.nome());
+        professorExistente.setEmail(professorRequest.email());
+        professorExistente.setSenha(professorRequest.senha());
+        professorExistente.setPerfil(professorRequest.perfil());
+        Professor professorAtualizado = professorRepository.save(professorExistente);
+        return converterParaDto(professorAtualizado);
+
+   }
+
+   public void deletarProfessor(Long id){
+        Professor professor = professorRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Professor não encontrado com ID: " + id));
+        professorRepository.delete(professor);
 
    }
 
